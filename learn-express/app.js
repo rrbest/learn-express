@@ -1,16 +1,10 @@
-//Load HTTP module
-var http = require("http");
+var express = require('express')
+var app = express()
 
-// Create HTTP server and listen on port 8000 for requests
-http.createServer(function (request, response){
-	//Set the response HTTP header with HTTP status and Content Type
-	response.writeHead(200, {'Content-Type': 'text/plain'});
+app.get('/', function(req, res){
+	res.send("Hello World!")
+})
 
-	//Send the response body "hello world"
-	response.end('Hello World\n');
-
-}).listen(8000);
-
-//Print URL for accessing server
-
-console.log('Servier running at http://127.0.0.1:8000/')
+app.listen(8000, function(){
+	console.log('Example app listening on port 8000!')
+})
